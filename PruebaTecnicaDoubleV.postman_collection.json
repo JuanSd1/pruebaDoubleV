@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "bd06d2d5-df3b-4550-bc97-4bf186278eb9",
+		"name": "PruebaTecnicaDoubleV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LlamarTicket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LlamarTicket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 20:58:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metadata\": [\n        {\n            \"date\": \"Respuesta exitosa\",\n            \"code\": \"00\",\n            \"type\": \"Respuesta OK\"\n        }\n    ],\n    \"ticketResponse\": {\n        \"ticket\": [\n            {\n                \"id\": 1,\n                \"usuario\": \"prueba\",\n                \"fechaCreacion\": \"2024-05-28T15:57:23.253946\",\n                \"fechaActualizacion\": \"2024-05-28T15:57:23.253946\",\n                \"status\": \"abierto\"\n            },\n            {\n                \"id\": 2,\n                \"usuario\": \"juanse\",\n                \"fechaCreacion\": \"2024-05-28T15:58:15.777053\",\n                \"fechaActualizacion\": \"2024-05-28T15:58:15.777053\",\n                \"status\": \"cerrado\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "LlamarTicketId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LlamarTicketId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/tickets/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 20:58:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metadata\": [\n        {\n            \"date\": \"Ticket encontrada\",\n            \"code\": \"00\",\n            \"type\": \"Respuesta ok\"\n        }\n    ],\n    \"ticketResponse\": {\n        \"ticket\": [\n            {\n                \"id\": 1,\n                \"usuario\": \"prueba\",\n                \"fechaCreacion\": \"2024-05-28T15:57:23.253946\",\n                \"fechaActualizacion\": \"2024-05-28T15:57:23.253946\",\n                \"status\": \"abierto\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CrearTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"juanse\",\r\n    \"status\": \"cerrado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CrearTicket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"juanse\",\r\n    \"status\": \"cerrado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 20:58:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"mensaje\": \"Registro Creado\",\n    \"object\": {\n        \"id\": 2,\n        \"usuario\": \"juanse\",\n        \"fechaCreacion\": \"2024-05-28T15:58:15.7770532\",\n        \"fechaActualizacion\": \"2024-05-28T15:58:15.7770532\",\n        \"status\": \"cerrado\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "ActualizarTicket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"juanse\",\r\n    \"status\": \"abierto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ActualizarTicket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"juanse\",\r\n    \"status\": \"abierto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/tickets/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 21:00:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metadata\": [\n        {\n            \"date\": \"Ticket actualizada\",\n            \"code\": \"00\",\n            \"type\": \"Respuesta ok\"\n        }\n    ],\n    \"ticketResponse\": {\n        \"ticket\": [\n            {\n                \"id\": 1,\n                \"usuario\": \"juanse\",\n                \"fechaCreacion\": \"2024-05-28T15:57:23.253946\",\n                \"fechaActualizacion\": \"2024-05-28T16:00:02.2941288\",\n                \"status\": \"abierto\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "EliminarTicket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PaginacionTicket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/tickets/page/0/size/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"tickets",
+						"page",
+						"0",
+						"size",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PaginacionTicket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/tickets/page/0/size/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"tickets",
+								"page",
+								"0",
+								"size",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 21:02:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalPages\": 1,\n    \"totalElements\": 2,\n    \"size\": 5,\n    \"content\": [\n        {\n            \"id\": 1,\n            \"usuario\": \"juanse\",\n            \"fechaCreacion\": \"2024-05-28T15:57:23.253946\",\n            \"fechaActualizacion\": \"2024-05-28T16:00:02.294129\",\n            \"status\": \"abierto\"\n        },\n        {\n            \"id\": 2,\n            \"usuario\": \"juanse\",\n            \"fechaCreacion\": \"2024-05-28T15:58:15.777053\",\n            \"fechaActualizacion\": \"2024-05-28T15:58:15.777053\",\n            \"status\": \"cerrado\"\n        }\n    ],\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 2,\n    \"first\": true,\n    \"last\": true,\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 5,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "ApiGitHub",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/github/users?name=juanquintero17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"github",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "juanquintero17"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ApiGitHub",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/github/users?name=juanquintero17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"github",
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "juanquintero17"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 21:03:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"login\": \"JuanQuintero17\",\n        \"html_url\": \"https://github.com/JuanQuintero17\",\n        \"avatar_url\": \"https://avatars.githubusercontent.com/u/164277766?v=4\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
