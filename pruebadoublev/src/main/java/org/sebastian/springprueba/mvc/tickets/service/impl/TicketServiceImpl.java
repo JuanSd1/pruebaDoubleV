@@ -28,20 +28,21 @@ public class TicketServiceImpl implements ITicketServices {
 
     @Autowired
     private ModelMapper modelMapper;
+
     @Override
     public ResponseEntity<TicketResponseRest> getAllByTicket() {
         TicketResponseRest response = new TicketResponseRest();
 
         try{
-            List<Ticket> ticket = (List<Ticket>) ticketRepository.findAll();
+            List<Ticket> ticket = ticketRepository.findAll();
             response.getTicketResponse().setTicket(ticket);
             response.setMetadata("Respuesta OK", "00", "Respuesta exitosa");
         }catch (Exception e) {
             response.setMetadata("Respuesta nok", "-1", "Error al consultar");
             e.getStackTrace();
-            return new ResponseEntity<TicketResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-         return new ResponseEntity<TicketResponseRest>(response, HttpStatus.OK);
+         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @Override
@@ -57,14 +58,14 @@ public class TicketServiceImpl implements ITicketServices {
                 response.setMetadata("Respuesta ok", "00", "Ticket encontrada");
             }else {
                 response.setMetadata("Respuesta nok", "-1", "Ticket no encontrada");
-                return new ResponseEntity<TicketResponseRest>(response, HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
             }
         }catch (Exception e) {
             response.setMetadata("Respuesta nok", "-1", "Error al consultar por id");
             e.getStackTrace();
-            return new ResponseEntity<TicketResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<TicketResponseRest>(response,HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @Override
@@ -75,46 +76,11 @@ public class TicketServiceImpl implements ITicketServices {
             ticketRepository.deleteById(id);
             response.setMetadata("Respuesta ok", "00", "Registro eliminado");
         }catch (Exception e) {
-            response.setMetadata("Respuesta nok", "-1", "Error al grabar Ticket");
+            response.setMetadata("Respuesta nok", "-1", "Error al eliminar Ticket");
             e.getStackTrace();
-            return new ResponseEntity<TicketResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<TicketResponseRest>(response,HttpStatus.OK);
-    }
-
-    @Override
-    @Transactional
-    public ResponseEntity<TicketResponseRest> updateTicket(Ticket ticket, Long id) {
-        TicketResponseRest response = new TicketResponseRest();
-        List<Ticket> list = new ArrayList<>();
-
-        Optional<Ticket> ticketSearch = ticketRepository.findById(id);
-        try {
-            if (ticketSearch.isPresent()) {
-                ticketSearch.get().setUsuario(ticket.getUsuario());
-                ticketSearch.get().setFechaActualizacion(LocalDateTime.now());
-                ticketSearch.get().setStatus(ticket.getStatus());
-                Ticket categoryToUpdate = ticketRepository.save(ticketSearch.get());
-
-                if (categoryToUpdate != null) {
-                    list.add(categoryToUpdate);
-                    response.getTicketResponse().setTicket(list);
-                    response.setMetadata("Respuesta ok", "00", "Ticket actualizada");
-                }else {
-                    response.setMetadata("Respuesta nok", "-1", "Ticket no actualizada");
-                    return new ResponseEntity<TicketResponseRest>(response, HttpStatus.BAD_REQUEST);
-                }
-            }else {
-                response.setMetadata("Respuesta nok", "-1", "Ticket no encontrada");
-                return new ResponseEntity<TicketResponseRest>(response, HttpStatus.NOT_FOUND);
-            }
-
-        }catch (Exception e){
-            response.setMetadata("Respuesta nok", "-1", "Ticket no encontrada");
-            e.getStackTrace();
-            return new ResponseEntity<TicketResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<TicketResponseRest>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @Override
@@ -150,6 +116,41 @@ public class TicketServiceImpl implements ITicketServices {
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return response;
+    }
+
+    @Override
+    @Transactional
+    public ResponseEntity<TicketResponseRest> updateTicket(Ticket ticket, Long id) {
+        TicketResponseRest response = new TicketResponseRest();
+        List<Ticket> list = new ArrayList<>();
+
+        Optional<Ticket> ticketSearch = ticketRepository.findById(id);
+        try {
+            if (ticketSearch.isPresent()) {
+                ticketSearch.get().setUsuario(ticket.getUsuario());
+                ticketSearch.get().setFechaActualizacion(LocalDateTime.now());
+                ticketSearch.get().setStatus(ticket.getStatus());
+                Ticket categoryToUpdate = ticketRepository.save(ticketSearch.get());
+
+                if (categoryToUpdate != null) {
+                    list.add(categoryToUpdate);
+                    response.getTicketResponse().setTicket(list);
+                    response.setMetadata("Respuesta ok", "00", "Ticket actualizada");
+                }else {
+                    response.setMetadata("Respuesta nok", "-1", "Ticket no actualizada");
+                    return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+                }
+            }else {
+                response.setMetadata("Respuesta nok", "-1", "Ticket no encontrada");
+                return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+            }
+
+        }catch (Exception e){
+            response.setMetadata("Respuesta nok", "-1", "Ticket no encontrada");
+            e.getStackTrace();
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @Override

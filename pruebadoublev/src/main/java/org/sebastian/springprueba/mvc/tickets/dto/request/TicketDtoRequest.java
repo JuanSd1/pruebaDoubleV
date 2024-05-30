@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 public class TicketDtoRequest {
+
     private String usuario;
     private String status;
+
 }

@@ -8,5 +8,7 @@ import java.util.List;
 @Setter
 @Getter
 public class TicketDtoRequestList {
+
     List<TicketDtoRequest> ticketDtoRequests;
+
 }

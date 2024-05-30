@@ -11,11 +11,11 @@ import org.springframework.http.ResponseEntity;
 
 public interface ITicketServices {
 
-    public ResponseEntity<TicketResponseRest> getAllByTicket();
-    public ResponseEntity<TicketResponseRest> getTicketId(Long id);
-    public ResponseEntity<TicketResponseRest> deleteTicket(Long id);
-    public ResponseEntity<TicketResponseRest> updateTicket(Ticket ticket, Long id);
-    public ResponseDto saveTicket(TicketDtoRequest ticket);
-    public Page<Ticket> findAllPageable(Pageable pageable);
+    ResponseEntity<TicketResponseRest> getAllByTicket();
+    ResponseEntity<TicketResponseRest> getTicketId(Long id);
+    ResponseEntity<TicketResponseRest> deleteTicket(Long id);
+    ResponseEntity<TicketResponseRest> updateTicket(Ticket ticket, Long id);
+    ResponseDto saveTicket(TicketDtoRequest ticket);
+    Page<Ticket> findAllPageable(Pageable pageable);
 
 }

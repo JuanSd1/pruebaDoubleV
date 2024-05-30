@@ -36,7 +36,7 @@ public class TicketRestController {
     @PostMapping("/tickets")
     public ResponseEntity<ResponseDto> saveTicket(@RequestBody TicketDtoRequest ticket){
         ResponseDto server = service.saveTicket(ticket);
-        return new ResponseEntity<ResponseDto>(server, server.getStatus());
+        return new ResponseEntity<>(server, server.getStatus());
     }
 
     @PutMapping("/tickets/{id}")

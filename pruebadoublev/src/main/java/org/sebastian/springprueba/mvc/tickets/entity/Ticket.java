@@ -21,5 +21,6 @@ public class Ticket {
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaActualizacion;
     private String status;
+
 }
 
